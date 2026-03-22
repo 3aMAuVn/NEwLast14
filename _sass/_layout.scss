@@ -1,0 +1,213 @@
+.premium-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(16px);
+  background: rgba(255,255,255,.82);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.07);
+  box-shadow: 0 10px 28px rgba(15,23,42,.04);
+}
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(15,29,58,.98), rgba(11,94,215,.92));
+  color: white;
+  padding: 52px 0 48px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.page-hero::after {
+  content: '';
+  position: absolute;
+  inset: auto -80px -80px auto;
+  width: 280px;
+  height: 280px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(232,164,54,.30), transparent 60%);
+  pointer-events: none;
+}
+.page-hero__inner { position: relative; z-index: 1; }
+.page-hero__kicker {
+  margin: 0 0 10px;
+  color: rgba(255,255,255,.78);
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: .78rem;
+  font-weight: 900;
+}
+.page-hero h1 { margin: 0 0 12px; font-size: clamp(2rem,4.4vw,3.5rem); }
+.page-hero p { max-width: 760px; margin: 0; font-size: 1.06rem; color: rgba(255,255,255,.88); }
+.page-hero__actions { display:flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+.footer-grid {
+  display:grid; grid-template-columns: 1.35fr .95fr; gap: 28px; padding: 32px 0 20px;
+}
+.footer-bottom { padding: 16px 0 28px; border-top: 1px solid rgba(255,255,255,.1); color: rgba(255,255,255,.75); }
+@media (max-width: 900px){ .footer-grid{ grid-template-columns:1fr; } }
+
+.page-hero{
+  width:min(var(--site-max, 1320px), calc(100% - (var(--site-gutter, 18px) * 2)));
+  max-width:none;
+  margin:18px auto 0;
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:0 14px 34px rgba(15, 23, 42, .12);
+}
+.page-hero > .container,
+.page-hero .container{
+  width:100%;
+  max-width:none;
+  padding-left:clamp(22px, 4vw, 56px);
+  padding-right:clamp(22px, 4vw, 56px);
+}
+@media (max-width: 760px){
+  .page-hero{
+    width:calc(100% - 18px);
+    border-radius:20px;
+  }
+}
+
+
+/* 2026-03 hero clipping fix */
+.page-hero {
+  overflow: visible;
+  padding-top: 56px;
+  padding-bottom: 52px;
+}
+.page-hero__inner {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.page-hero h1 {
+  line-height: 1.16;
+  padding-top: 0.08em;
+  padding-bottom: 0.08em;
+}
+.page-hero p {
+  line-height: 1.6;
+}
+.page-hero__kicker {
+  line-height: 1.35;
+}
+
+
+/* === 2026-03 aggressive hero text unclipping fix === */
+.page-hero,
+.page-hero::before,
+.page-hero::after,
+.page-hero > .container,
+.page-hero .container,
+.page-hero__inner,
+.page-hero__actions {
+  overflow: visible !important;
+}
+.page-hero {
+  min-height: clamp(240px, 24vw, 380px) !important;
+  padding-top: clamp(64px, 8vw, 92px) !important;
+  padding-bottom: clamp(56px, 7vw, 84px) !important;
+}
+.page-hero h1,
+.page-hero p,
+.page-hero__kicker {
+  overflow: visible !important;
+  text-rendering: geometricPrecision;
+}
+.page-hero h1 {
+  display: block !important;
+  line-height: 1.28 !important;
+  margin-top: 0 !important;
+  margin-bottom: 14px !important;
+  padding-top: .18em !important;
+  padding-bottom: .18em !important;
+  letter-spacing: 0 !important;
+}
+.page-hero p {
+  line-height: 1.72 !important;
+  padding-top: .04em !important;
+  padding-bottom: .08em !important;
+}
+.page-hero__kicker {
+  line-height: 1.45 !important;
+  padding-top: .04em !important;
+  padding-bottom: .04em !important;
+}
+@media (max-width: 760px) {
+  .page-hero {
+    min-height: auto !important;
+    padding-top: 44px !important;
+    padding-bottom: 42px !important;
+  }
+  .page-hero h1 {
+    line-height: 1.22 !important;
+    padding-top: .14em !important;
+    padding-bottom: .14em !important;
+  }
+}
+
+
+/* === 2026-03 hero shell width parity fix === */
+.page-hero{
+  width: min(var(--site-shell-max-final, 1280px), calc(100vw - (var(--site-shell-gutter-final, 24px) * 2))) !important;
+  max-width: var(--site-shell-max-final, 1280px) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+.page-hero > .container,
+.page-hero .container,
+.page-hero__inner{
+  width: 100% !important;
+  max-width: none !important;
+  margin-inline: auto !important;
+  box-sizing: border-box !important;
+}
+.page-hero > .container,
+.page-hero .container{
+  padding-left: var(--site-shell-gutter-final, 24px) !important;
+  padding-right: var(--site-shell-gutter-final, 24px) !important;
+}
+@media (max-width: 760px){
+  .page-hero{
+    width: calc(100vw - (var(--site-shell-gutter-final, 16px) * 2)) !important;
+  }
+}
+
+/* === 2026-03 hero inner wrapper fix === */
+.page-hero > .container{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.page-hero__inner{
+  width: 100% !important;
+  box-sizing: border-box !important;
+  padding-left: clamp(28px, 4vw, 56px) !important;
+  padding-right: clamp(28px, 4vw, 56px) !important;
+}
+@media (max-width: 760px){
+  .page-hero__inner{
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+  }
+}
+
+
+/* === 2026-03 final non-home hero full-shell width fix === */
+body:not(.page-demo):not(.page-demo-prep-2):not(.page-demo-3-6):not(.page-demo-7-10):not(.page-demo-11-12) .page-hero{
+  width: calc(100vw - (var(--site-shell-gutter-final, 28px) * 2)) !important;
+  max-width: none !important;
+  margin-left: var(--site-shell-gutter-final, 28px) !important;
+  margin-right: var(--site-shell-gutter-final, 28px) !important;
+  box-sizing: border-box !important;
+}
+body:not(.page-demo):not(.page-demo-prep-2):not(.page-demo-3-6):not(.page-demo-7-10):not(.page-demo-11-12) .page-hero > .container,
+body:not(.page-demo):not(.page-demo-prep-2):not(.page-demo-3-6):not(.page-demo-7-10):not(.page-demo-11-12) .page-hero .container,
+body:not(.page-demo):not(.page-demo-prep-2):not(.page-demo-3-6):not(.page-demo-7-10):not(.page-demo-11-12) .page-hero__inner{
+  width: 100% !important;
+  max-width: none !important;
+  box-sizing: border-box !important;
+}
+@media (max-width: 760px){
+  body:not(.page-demo):not(.page-demo-prep-2):not(.page-demo-3-6):not(.page-demo-7-10):not(.page-demo-11-12) .page-hero{
+    width: calc(100vw - (var(--site-shell-gutter-final, 16px) * 2)) !important;
+    margin-left: var(--site-shell-gutter-final, 16px) !important;
+    margin-right: var(--site-shell-gutter-final, 16px) !important;
+  }
+}
